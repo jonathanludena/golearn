@@ -45,11 +45,13 @@ go build main.go
 
 # Variables en GO
 
-- Se usa la palabra reservada var
-para declarar variables se usa 
-``` var numero int 
+- Se usa la palabra reservada var para declarar variables se usa 
+
+``` 
+var numero int 
 var texto string
-var status bool ```
+var status bool 
+```
 
 - Tipos de datos numéricos:
 float32
