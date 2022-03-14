@@ -318,4 +318,24 @@ matriz[3][5] = 1
 fmt.Println((matriz))
 ```
 
-- 
+## Estructuras (POO en GO)
+
+Es una colección de múltiples campos de datos con sus tipos de datos definidos agrupados. Son útiles para agrupar datos para formar registros personalizados. Consta de ambos incorporado y tipos definidos por el usuario. 
+
+- Las estructuras pueden ser modificadas a los largo del programa. 
+
+- Ayudan a mejorar la calidad general del código al permitirnos crear y pasar estructuras de datos complejas a través de múltiples módulos. Imagina pasar 10 parámetros a una función, pronto se quedará sin código. En lugar de pasar 10 parátros en una función, ahora simplemente pasa una sola estructura. 
+
+- Muy similar a las clases, contiene un conjunto de campos que tienen un tipo definido y un identificador. 
+
+**Sintáxis**
+```
+type usuario struct {
+	Id        int
+	Nombre    string
+	FechaAlta time.Time
+	Status    bool
+}
+
+```
+
