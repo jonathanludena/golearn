@@ -25,6 +25,7 @@
 
 Desde el sitio oficial https://golang.org descargar el instalador
 Ir al link https://go.dev/doc/install y realizar los pasos en la terminal
+Si no tienes instalada una versión anterior entonces no es necesario eliminar go de ```/usr/local/go```
 
 # Usando GO
 
@@ -289,6 +290,8 @@ func Tabla(valor int) func() int {
 ```
 
 ## Arreglos estáticos & Slices
+
+## Arreglos
 - Se declaran:
 ```
 var tabla [10]int
@@ -316,8 +319,123 @@ for i := 0; i < len(tabla); i++ {
 var matriz [5][7]int
 matriz[3][5] = 1
 fmt.Println((matriz))
+
+// resultado [[0 0 0 0 0 0 0] [0 0 0 0 0 0 0] [0 0 0 0 0 0 0] [0 0 0 0 0 1 0] [0 0 0 0 0 0 0]]
 ```
 
+## Slices
+
+Es similar a una lista o array, que son vectores dinámicos
+
+```
+matriz := []int{2, 5, 4}
+fmt.Println(matriz)
+
+// resultado [2 5 4]
+```
+
+- Pueden ser construidos a partir de un vector normal
+
+```
+elementos := [5]int{1, 2, 3, 4, 5}
+porcion := elementos[3:]   // desde el tercer elemento hasta el final del vector
+porcion2 := elementos[:3]  // desde el primer elemento hasta el tercer elemento del vector
+porcion3 := elementos[2:4] // desde el primer elemento hasta el tercer elemento del vector
+
+fmt.Println(porcion)
+fmt.Println(porcion2)
+fmt.Println(porcion3)
+
+// resultados 
+// [4 5]
+// [1 2 3]
+// [3 4]
+```
+
+- Utilizando la func make se puede construir slices 
+La func make pide 3 parámetros: 
+1. tipo de slice
+2. tamaño del slice
+3. capacidad máxima del slice => Esto quiere decir que el slice puede tener un tamaño pero su capacidad máxima es el límite de su tamaño
+
+```
+elementos := make([]int, 5, 20) // slice entero de tamaño 5 pero que puede crecer hasta 20
+fmt.Println(elementos)
+
+// resultado [0 0 0 0 0]
+```
+
+- los Slices pueden ser dimensionado y redimensionados de acuerdo a la necesidad
+
+```
+// make => tiene 3 parametros para crear slices: type, len, capacity
+elementos := make([]int, 5, 20)
+// cap => func que permite revisar la capacidad de un vector
+fmt.Printf("Largo %d, Capacidad %d \n", len(elementos), cap(elementos))
+
+// Resultado Largo 5, Capacidad 20
+```
+
+Y luego redimensionado a traves de la func append
+```
+nums := make([]int, 0, 0)
+for i := 0; i < 100; i++ {
+	nums = append(nums, i)
+}
+fmt.Printf("Largo %d, Capacidad %d\n", len(nums), cap(nums))
+```
+
+## Mapas
+
+Un Mapa es una estructura que se puede serializar, es decir, que se puede crear en serie
+En un mapa se puede crear un par de clave y valor. Que pueden ser string o numerico
+
+- Se declara un mapa de la siguiente manera: 
+```
+// Con la func make
+paises := make(map[string]string, 5)
+
+// Sin la func make
+campeonato := map[string]int{
+	"Barcelona":    39,
+	"Real Madrid":  38,
+	"Chivas":       37,
+	"Boca Juniors": 30,
+}
+```
+
+- Se agregan elementos:
+```
+paises["Mexico"] = "D.F."
+paises["Argentina"] = "Buenos Aires"
+
+// o en el caso de que la clave sea string
+campeonato["River Plate"] = 25
+```
+
+- Modificar elementos al map
+```
+campeonato["Chivas"] = 55
+```
+
+- Eliminar elementos del map
+```
+delete(campeonato, "Real Madrid")
+```
+
+- Listando todos los elementos del map
+```
+for equipo, puntaje := range campeonato {
+	fmt.Printf("El equipo %s, tiene un puntaje de: %d \n", equipo, puntaje)
+}
+```
+
+- Buscando elemento
+```
+puntaje, existe := campeonato["Mineiro"]
+fmt.Printf("El puntaje capturado %d, y el equipo existe %t\n", puntaje, existe)
+
+<<<<<<< HEAD
 ## Estructuras (POO en GO)
 
 Es una colección de múltiples campos de datos con sus tipos de datos definidos agrupados. Son útiles para agrupar datos para formar registros personalizados. Consta de ambos incorporado y tipos definidos por el usuario. 
@@ -339,3 +457,8 @@ type usuario struct {
 
 ```
 
+=======
+puntaje, existe = campeonato["Chivas"]
+fmt.Printf("El puntaje capturado %d, y el equipo existe %t\n", puntaje, existe)
+```
+>>>>>>> a269923d8dd6b9ae2824092a591f1b930ec14e87
