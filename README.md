@@ -435,7 +435,10 @@ for equipo, puntaje := range campeonato {
 puntaje, existe := campeonato["Mineiro"]
 fmt.Printf("El puntaje capturado %d, y el equipo existe %t\n", puntaje, existe)
 
-<<<<<<< HEAD
+puntaje, existe = campeonato["Chivas"]
+fmt.Printf("El puntaje capturado %d, y el equipo existe %t\n", puntaje, existe)
+```
+
 ## Estructuras (POO en GO)
 
 Es una colección de múltiples campos de datos con sus tipos de datos definidos agrupados. Son útiles para agrupar datos para formar registros personalizados. Consta de ambos incorporado y tipos definidos por el usuario. 
@@ -455,10 +458,3 @@ type usuario struct {
 	Status    bool
 }
 
-```
-
-=======
-puntaje, existe = campeonato["Chivas"]
-fmt.Printf("El puntaje capturado %d, y el equipo existe %t\n", puntaje, existe)
-```
->>>>>>> a269923d8dd6b9ae2824092a591f1b930ec14e87
