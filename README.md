@@ -1,4 +1,4 @@
-# Conceptos 
+# Conceptos
 
 - Es un lenguaje creado por Google
 - Creado para resolver problemas internos de Google
@@ -20,19 +20,19 @@
 - No es un lenguaje orientado a objetos y resuelve lo que conocemos como POO, con estructuras, funciones, métodos e interfaces
 - El scope de las variables, métodos y funciones se determinan con nombres en mayúsculas y minúsculas
 
-
-# Instalación de GO 
+# Instalación de GO
 
 Desde el sitio oficial https://golang.org descargar el instalador
 Ir al link https://go.dev/doc/install y realizar los pasos en la terminal
-Si no tienes instalada una versión anterior entonces no es necesario eliminar go de ```/usr/local/go```
+Si no tienes instalada una versión anterior entonces no es necesario eliminar go de `/usr/local/go`
 
 # Usando GO
 
 - Para ejecutar con compilador rápido en memoria sin generar un archivo de ejecución del programa, basta con el comando go run main.go
-siempre inicia el programa con package nombre_file
+  siempre inicia el programa con package nombre_file
 
 - Para importar librerías se debe usar import “libreria”. Si son más de una librería a importar se debe utilizar:
+
 ```
 import (
 	“libreria1”
@@ -42,31 +42,32 @@ import (
 ```
 
 - Para generar un archivo de ejecución se debe usar el comando:
-go build main.go
+  go build main.go
 
 # Variables en GO
 
-- Se usa la palabra reservada var para declarar variables se usa 
+- Se usa la palabra reservada var para declarar variables se usa
 
-``` 
-var numero int 
+```
+var numero int
 var texto string
-var status bool 
+var status bool
 ```
 
 - Tipos de datos numéricos:
-float32
-float64
-int16
-int8
-int32
-int64
-uint => tipo de entero sin signo
-entre otros...
+  float32
+  float64
+  int16
+  int8
+  int32
+  int64
+  uint => tipo de entero sin signo
+  entre otros...
 
 ## Condiciones
 
-Hay 2 formas de sentenciar las condiciones. 
+Hay 2 formas de sentenciar las condiciones.
+
 - No existen los oarentesis en go. Salvo que hayan que agrupar las condiciones
 - Se usan las {} llaves para armar un scope dentro de la condicion
 
@@ -78,11 +79,12 @@ if condicion == true {
 }
 ```
 
-## Mostrar y aceptar datos 
+## Mostrar y aceptar datos
 
-Importamos los paquetes: 
+Importamos los paquetes:
+
 - "os" => maneja el sistema operativo
-- "bufio" => 
+- "bufio" =>
 
 ```
 var numero1 int
@@ -90,7 +92,7 @@ var numero2 int
 
 //Con Scanf al dar enter en Linuz es un new line, difiere en Windows
 
-fmt.Println("Ingrese un numero:") 
+fmt.Println("Ingrese un numero:")
 //fmt.Scanf("%d", &numero1)
 Scanln(&numero1)
 
@@ -102,7 +104,9 @@ fmt.Printf("%d", numero1+numero2)
 ```
 
 ## Usando Bufio u OS. Alternativa a Scanln
+
 - Le asignamos a la variable scanner un nuevo scanner que va a recibir del standart input (keyboard) un numero
+
 ```
 ...
 var resultado int
@@ -122,15 +126,18 @@ fmt.Println(leyenda, resultado)
 
 Las iteraciones en go solo se realizan por medio del for
 
-- Sintaxis del ciclo for 
+- Sintaxis del ciclo for
+
 ```
 i := 1
 for i < 10 {
 	fmt.Println(i)
-	i++ 
+	i++
 }
 ```
+
 o también
+
 ```
 for i:= 1; i <= 10; i ++ {
 	fmt.Println(i)
@@ -138,6 +145,7 @@ for i:= 1; i <= 10; i ++ {
 ```
 
 - Con el break se puede romper el ciclo for
+
 ```
 numero := 0
 for {
@@ -152,6 +160,7 @@ for {
 ```
 
 - Se puede usar "continue" sigue en la iteracion sin pasar por las siguientes lineas
+
 ```
 var i = 0
 for i < 10 {
@@ -159,7 +168,7 @@ for i < 10 {
 	if i == 5 {
 		fmt.Printf(" multiplicamos por 2 \n")
 		i = i * 2
-		continue 
+		continue
 	}
 	fmt.Printf(" 		Paso por este lugar \n")
 	i++
@@ -167,6 +176,7 @@ for i < 10 {
 ```
 
 - El uso Secciones. Se usa "goto" para llamar la sección que es parecido del "continue" solo que va a la sección que se específica
+
 ```
 var i int = 0
 
@@ -183,17 +193,22 @@ RUTINA:
 ```
 
 ## Funciones
-Existen ditintos tipos de funciones. Todo se hace con funciones en Go. 
+
+Existen ditintos tipos de funciones. Todo se hace con funciones en Go.
+
 - La estructura de la funcion
+
 ```
 func uno(numero int) (z int) {
 	z = numero * 2
 	return
 }
 ```
+
 (Tipando los parametros y lo que la funcion retornará)
 
 - Una función en Go puede retornar 2 valores de diferentes tipos
+
 ```
 func dos(numero int) (int, bool) {
 	if numero == 1 {
@@ -205,6 +220,7 @@ func dos(numero int) (int, bool) {
 ```
 
 - En go el resultado de la funcion, los valores que retorna pueden ser asignados en variables
+
 ```
 numero, estado := dos(1)
 // numero => 5
@@ -212,9 +228,10 @@ numero, estado := dos(1)
 ```
 
 - Las funcionaes pueden recibir un numero indeterminado de parámetros
-En Go. No tiene sobrecarga de funciones o métodos
+  En Go. No tiene sobrecarga de funciones o métodos
 
 Con los "...int" le dice que va a recibir un nùmero dinámico o indeterminado de paràmetros enteros
+
 ```
 func Calculo(numero ...int) int {
 	total := 0
@@ -227,12 +244,14 @@ func Calculo(numero ...int) int {
 	return total
 }
 ```
-* Range => utiliza una lista o un vector de elementos. Devuelve o retorna 2 valores: el [key] del elemento y el [elemento] que está recorriendo ese momento
+
+- Range => utiliza una lista o un vector de elementos. Devuelve o retorna 2 valores: el [key] del elemento y el [elemento] que está recorriendo ese momento
 
 ## Funciones Anónimas y Closures
 
-* Func Anónimas => son funciones que no tienen nombre. Para crear operaciones sin necesidad de llamarlas en tiempo de ejecución
-(Se crea una variable de tipo función)
+- Func Anónimas => son funciones que no tienen nombre. Para crear operaciones sin necesidad de llamarlas en tiempo de ejecución
+  (Se crea una variable de tipo función)
+
 ```
 var Calculo func(int, int) int = func(num1 int, num2 int) int {
 	return num1 + num2
@@ -244,6 +263,7 @@ func main() {
 ```
 
 - Se realiza esto para luego poder redefinir la variable de tipo funcion
+
 ```
 Calculo = func(num1 int, num2 int) int {
 	return num1 - num2
@@ -251,9 +271,11 @@ Calculo = func(num1 int, num2 int) int {
 
 fmt.Printf("Resta 6 - 4 es = %d \n", Calculo(6, 4))
 ```
-- Respetando el numero de paràmetros definido en el tipo de la funcion 
+
+- Respetando el numero de paràmetros definido en el tipo de la funcion
 
 - Y cuando una funcion por dentro tiene una función anónima
+
 ```
 func Operaciones() {
 	resultado := func() int {
@@ -267,7 +289,7 @@ func Operaciones() {
 }
 ```
 
-* Closures => Tiene que ver con la protección de código. Es una función que guarda referencias del estado adyacente (àmbito lèxico). En otras palabras, una clausura permite acceder al àmbito de una función exterior desde una función interior. Entonces puede tener un estado único propio. Luego, el estado se aísla a medida que creamos nuevas instancias de la función. 
+- Closures => Tiene que ver con la protección de código. Es una función que guarda referencias del estado adyacente (àmbito lèxico). En otras palabras, una clausura permite acceder al àmbito de una función exterior desde una función interior. Entonces puede tener un estado único propio. Luego, el estado se aísla a medida que creamos nuevas instancias de la función.
 
 ```
 func main() {
@@ -292,22 +314,26 @@ func Tabla(valor int) func() int {
 ## Arreglos estáticos & Slices
 
 ## Arreglos
+
 - Se declaran:
+
 ```
 var tabla [10]int
 ```
+
 [10]int => dimensión del arrreglo junto con el tipo
 
 - Al declarar sin inicializar valores del arreglo este arreglo sera de [0,0,0,...10 veces]
 
-- Se puede asignar directamente por posiciones 
-tabla[0] = 1
-tabla[4] = 15
+- Se puede asignar directamente por posiciones
+  tabla[0] = 1
+  tabla[4] = 15
 
 - Se asigna un arreglo con {}
-tabla := [10]int{5, 6, 7, 8, 12, 2, 3, 5, 11, 12}
+  tabla := [10]int{5, 6, 7, 8, 12, 2, 3, 5, 11, 12}
 
 - Recorrer un arreglo
+
 ```
 for i := 0; i < len(tabla); i++ {
 	fmt.Println((tabla[i]))
@@ -315,6 +341,7 @@ for i := 0; i < len(tabla); i++ {
 ```
 
 - Las matrices son un conjunto de vectores-listas-arreglos en 2 dimensiones, filas-columnas
+
 ```
 var matriz [5][7]int
 matriz[3][5] = 1
@@ -346,14 +373,15 @@ fmt.Println(porcion)
 fmt.Println(porcion2)
 fmt.Println(porcion3)
 
-// resultados 
+// resultados
 // [4 5]
 // [1 2 3]
 // [3 4]
 ```
 
-- Utilizando la func make se puede construir slices 
-La func make pide 3 parámetros: 
+- Utilizando la func make se puede construir slices
+  La func make pide 3 parámetros:
+
 1. tipo de slice
 2. tamaño del slice
 3. capacidad máxima del slice => Esto quiere decir que el slice puede tener un tamaño pero su capacidad máxima es el límite de su tamaño
@@ -377,6 +405,7 @@ fmt.Printf("Largo %d, Capacidad %d \n", len(elementos), cap(elementos))
 ```
 
 Y luego redimensionado a traves de la func append
+
 ```
 nums := make([]int, 0, 0)
 for i := 0; i < 100; i++ {
@@ -390,7 +419,8 @@ fmt.Printf("Largo %d, Capacidad %d\n", len(nums), cap(nums))
 Un Mapa es una estructura que se puede serializar, es decir, que se puede crear en serie
 En un mapa se puede crear un par de clave y valor. Que pueden ser string o numerico
 
-- Se declara un mapa de la siguiente manera: 
+- Se declara un mapa de la siguiente manera:
+
 ```
 // Con la func make
 paises := make(map[string]string, 5)
@@ -405,6 +435,7 @@ campeonato := map[string]int{
 ```
 
 - Se agregan elementos:
+
 ```
 paises["Mexico"] = "D.F."
 paises["Argentina"] = "Buenos Aires"
@@ -414,16 +445,19 @@ campeonato["River Plate"] = 25
 ```
 
 - Modificar elementos al map
+
 ```
 campeonato["Chivas"] = 55
 ```
 
 - Eliminar elementos del map
+
 ```
 delete(campeonato, "Real Madrid")
 ```
 
 - Listando todos los elementos del map
+
 ```
 for equipo, puntaje := range campeonato {
 	fmt.Printf("El equipo %s, tiene un puntaje de: %d \n", equipo, puntaje)
@@ -431,6 +465,7 @@ for equipo, puntaje := range campeonato {
 ```
 
 - Buscando elemento
+
 ```
 puntaje, existe := campeonato["Mineiro"]
 fmt.Printf("El puntaje capturado %d, y el equipo existe %t\n", puntaje, existe)
@@ -441,15 +476,16 @@ fmt.Printf("El puntaje capturado %d, y el equipo existe %t\n", puntaje, existe)
 
 ## Estructuras (POO en GO)
 
-Es una colección de múltiples campos de datos con sus tipos de datos definidos agrupados. Son útiles para agrupar datos para formar registros personalizados. Consta de ambos incorporado y tipos definidos por el usuario. 
+Es una colección de múltiples campos de datos con sus tipos de datos definidos agrupados. Son útiles para agrupar datos para formar registros personalizados. Consta de ambos incorporado y tipos definidos por el usuario.
 
-- Las estructuras pueden ser modificadas a los largo del programa. 
+- Las estructuras pueden ser modificadas a los largo del programa.
 
-- Ayudan a mejorar la calidad general del código al permitirnos crear y pasar estructuras de datos complejas a través de múltiples módulos. Imagina pasar 10 parámetros a una función, pronto se quedará sin código. En lugar de pasar 10 parátros en una función, ahora simplemente pasa una sola estructura. 
+- Ayudan a mejorar la calidad general del código al permitirnos crear y pasar estructuras de datos complejas a través de múltiples módulos. Imagina pasar 10 parámetros a una función, pronto se quedará sin código. En lugar de pasar 10 parátros en una función, ahora simplemente pasa una sola estructura.
 
-- Muy similar a las clases, contiene un conjunto de campos que tienen un tipo definido y un identificador. 
+- Muy similar a las clases, contiene un conjunto de campos que tienen un tipo definido y un identificador.
 
 **Sintáxis**
+
 ```
 type usuario struct {
 	Id        int
@@ -458,3 +494,12 @@ type usuario struct {
 	Status    bool
 }
 
+```
+
+## Interfaces
+
+Asi como en la POO, parecidas a las estructuras, pero permiten definir conductas, operaciones y comportamientos. Creando cualquier objeto, ese objeto implementa comportamientos, metodos y funciones.
+
+Las interfaces de Go proporcionan un método para organizar composiciones complejas y aprender a usarlas le permitirá crear código común y reutilizable.
+
+Una interface en Go, es una plantilla de métodos y es utilizado para proporcionar modularidad a Go. Es decir, la interface **indica que métodos deben ser implementados pero no los define**. Las interfaces son útiles ya que definen la especificación de los métodos, de forma que las posibles implementaciones pueden ser intercambiadas.
