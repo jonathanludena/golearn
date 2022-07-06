@@ -497,7 +497,11 @@ type usuario struct {
 
 ## Interfaces
 
-Tienen que ver con POO. Nos permite definir conductas, oparaciones y comportamientos.
+Asi como en la POO, parecidas a las estructuras, pero permiten definir conductas, operaciones y comportamientos. Creando cualquier objeto, ese objeto implementa comportamientos, metodos y funciones.
+
+Las interfaces de Go proporcionan un método para organizar composiciones complejas y aprender a usarlas le permitirá crear código común y reutilizable.
+
+Una interface en Go, es una plantilla de métodos y es utilizado para proporcionar modularidad a Go. Es decir, la interface **indica que métodos deben ser implementados pero no los define**. Las interfaces son útiles ya que definen la especificación de los métodos, de forma que las posibles implementaciones pueden ser intercambiadas.
 
 **Sintáxis**
 
