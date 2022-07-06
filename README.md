@@ -513,3 +513,10 @@ type humano interface {
 	sexo() string
 }
 ```
+
+## Manejo de archivos desde Go
+
+Para el manejo de archivos podemos usar las siguientes librerías:
+
+- os
+- io/ioutil
