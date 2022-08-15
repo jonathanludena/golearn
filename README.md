@@ -520,3 +520,18 @@ Para el manejo de archivos podemos usar las siguientes librerías:
 
 - os
 - io/ioutil
+
+# Recursión en GO
+
+Las recursiones es un método de resolución de problemas por medio de su división en pequeñas instancias que luego son unidas para generar una solución global
+
+La recursión se comporta como una pila en la que se ingresan valores hasta alcanzar uno o varios casos base a partir de los cuales se solucionará un problema.
+
+Los algoritmos recursivos constan de dos elementos fundamentales:
+
+- Casos base: son los escenarios finales a partir de los cuales se comienzan a agrupar las pequeñas soluciones
+- Reglas: las cuales se encargan de dividir el problema principal en diversos casos.
+
+# DEFER - PANIC & RECOVER
+
+- DEFER: es una instrucción que se va a ejecutar siempre que finalice el programa o si una funcion se va a ejecutar y se resuelve por un return o un error
