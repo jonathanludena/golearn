@@ -548,3 +548,4 @@ Incluso, la función principal main se ejecuta dentro de una **gorutine**.
 
 # CHANNELS (Diálogo entre Gorutines)
 
+Los canales es un espacio de memoria, de dialogo en el que se van a comunicar las **gorutines** concurrentes. Puedes enviar valores por un canal de una gorutine y recibir esos valores en otra gorutine.
