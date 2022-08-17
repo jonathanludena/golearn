@@ -535,3 +535,16 @@ Los algoritmos recursivos constan de dos elementos fundamentales:
 # DEFER - PANIC & RECOVER
 
 - DEFER: es una instrucción que se va a ejecutar siempre que finalice el programa o si una funcion se va a ejecutar y se resuelve por un return o un error
+
+- PANIC: es una instrucción que fuerza a un error y el sistema aborta la ejecución
+
+# GO RUTINES
+
+Es un hilo o thread de ejecución ligero. supongamos que tenemos una llamada a la funcion ```f(s)``` Así es como la llamaríamos de la manera tradicional, o de manera síncrona. 
+
+Para llamar esta función en una **gorutine**, usamos ``` go f(s)```. Esta nueva gorutine se ejecutará de manera concurrente junto con otras funciones o métodos. 
+
+Incluso, la función principal main se ejecuta dentro de una **gorutine**.
+
+# CHANNELS (Diálogo entre Gorutines)
+
